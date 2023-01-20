@@ -5,10 +5,12 @@ namespace TaskApi.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddApiDependencies(this IServiceCollection services)
+        public static IServiceCollection AddApiDependencies(this IServiceCollection services)
         {
             services.AddScoped<DataContext>();
             services.AddScoped<ITarefaService, TarefaService>();
+
+            return services;
         }
     }
 }
