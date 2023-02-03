@@ -1,4 +1,9 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 using TaskApi.Extensions;
+using TaskApi.Models.DTO;
+using TaskApi.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 

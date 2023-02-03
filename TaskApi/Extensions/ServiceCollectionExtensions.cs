@@ -1,5 +1,8 @@
-﻿using TaskApi.Data;
+﻿using FluentValidation;
+using TaskApi.Data;
+using TaskApi.Models.DTO;
 using TaskApi.Services;
+using TaskApi.Validations;
 
 namespace TaskApi.Extensions
 {
@@ -9,6 +12,7 @@ namespace TaskApi.Extensions
         {
             services.AddScoped<DataContext>();
             services.AddScoped<ITarefaService, TarefaService>();
+            services.AddScoped<IValidator<TarefaAdicionarDto>, AddTarefaValidation>();
 
             return services;
         }

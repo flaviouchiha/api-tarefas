@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using TaskApi.Models;
 using TaskApi.Models.DTO;
 using TaskApi.Services;
@@ -55,16 +57,13 @@ namespace TaskApi.Controllers
         {
             try
             {
-                if (string.IsNullOrEmpty(tarefa.Descricao))
-                    return BadRequest("A descrição não pode estar vazia");
-
                 var result = await _tarefaService.Adicionar(tarefa);
 
                 return StatusCode(201, result);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(500, MensagemDeErro);
+                return StatusCode(500, e.Message);
             }
         }
 
