@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using TaskApi.Data;
 using TaskApi.Models;
 using TaskApi.Models.DTO;
@@ -8,14 +9,23 @@ namespace TaskApi.Services
     public class TarefaService : ITarefaService
     {
         private readonly DataContext _dataContext;
+        private readonly IValidator<TarefaAdicionarDto> _validator;
 
-        public TarefaService(DataContext dataContext)
+        public TarefaService(DataContext dataContext, IValidator<TarefaAdicionarDto> validator)
         {
             _dataContext = dataContext;
+            _validator = validator;
         }
 
         public async Task<Tarefa> Adicionar(TarefaAdicionarDto tarefaDto)
         {
+            var validationResult = await _validator.ValidateAsync(tarefaDto);
+
+            var errors = string.Join(" | ", validationResult.Errors);
+
+            if (!validationResult.IsValid)
+                throw new Exception(errors);
+
             var tarefa = new Tarefa
             {
                 Descricao = tarefaDto.Descricao,

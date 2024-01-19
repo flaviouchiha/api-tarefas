@@ -1,4 +1,9 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 using TaskApi.Extensions;
+using TaskApi.Models.DTO;
+using TaskApi.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,15 +14,12 @@ builder.Services.AddApiDependencies();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(opt =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(opt =>
-    {
-        opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Task API v1");
-        opt.RoutePrefix = string.Empty;
-    });
-}
+    opt.SwaggerEndpoint("/swagger/v1/swagger.json", "Task API v1");
+    opt.RoutePrefix = string.Empty;
+});
 
 app.UseAuthorization();
 
