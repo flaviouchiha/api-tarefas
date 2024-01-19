@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApi", "TaskApi\TaskApi.csproj", "{2268DDC4-F492-4827-A943-396489BD4D3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskApi", "TaskApi\TaskApi.csproj", "{2268DDC4-F492-4827-A943-396489BD4D3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{AA4691D8-BE60-42A9-9D51-BB6692E8CE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Gateway", "TaskApi\Task.Gateway\Task.Gateway.csproj", "{83B92CBE-B0CD-427C-8989-E7B7CF2B0810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{2268DDC4-F492-4827-A943-396489BD4D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2268DDC4-F492-4827-A943-396489BD4D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2268DDC4-F492-4827-A943-396489BD4D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83B92CBE-B0CD-427C-8989-E7B7CF2B0810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B92CBE-B0CD-427C-8989-E7B7CF2B0810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B92CBE-B0CD-427C-8989-E7B7CF2B0810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B92CBE-B0CD-427C-8989-E7B7CF2B0810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83B92CBE-B0CD-427C-8989-E7B7CF2B0810} = {AA4691D8-BE60-42A9-9D51-BB6692E8CE47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {483954B2-4849-4A3F-A998-8C2CB71D6FDF}
